@@ -2,7 +2,7 @@ import torch
 from config import MODEL_PATH, DEVICE, GROQ_API_KEY, LABELS, SEED_VAL
 from model import load_model
 from predict import predictMoneySign, fit_label_encoder
-from explain import explainMS
+#from explain import explainMS
 from database import get_user_data
 import random
 import numpy as np
@@ -35,8 +35,9 @@ def main():
 
     # Explain the singular prediction
     if predicted_ms != "Unknown Label":
-        explanation = explainMS(GROQ_API_KEY, singular_input, predicted_ms)
-        print(f"Explanation for the prediction:\n{explanation}")
+        print(f"Your predicted MoneySign is: {predicted_ms}")
+        # explanation = explainMS(GROQ_API_KEY, singular_input, predicted_ms)
+        # print(f"Explanation for the prediction:\n{explanation}")
     else:
         print("The predicted MoneySign label is unknown.")
 
